@@ -1,0 +1,11 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* 在这修改ant的css */
+.ant-menu-horizontal {
+  border-bottom: 0px solid #f0f0f0 !important;
+}
