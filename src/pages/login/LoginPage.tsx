@@ -1,6 +1,6 @@
 import { LoginFormCom } from "components";
 import React from "react";
-import styles from "./index.module.scss";
+import styles from "./loginPage.module.scss";
 import { NavigationCom } from "components";
 import logo from "assets/img/login_banner.png";
 export const LoginPage: React.FC = (props) => {

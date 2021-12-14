@@ -7,7 +7,10 @@ import { useNavigate } from "react-router-dom";
 export const HomePage: React.FC = () => {
   const navigation = useNavigate();
   const startFun = () => {
-    navigation("login");
+    navigation("/login");
+  };
+  const aboutFun = () => {
+    navigation("/about");
   };
   return (
     <div className={styles.home}>
@@ -45,6 +48,7 @@ export const HomePage: React.FC = () => {
               borderRadius: 4,
               marginRight: 20,
             }}
+            onClick={aboutFun}
           >
             关于
           </Button>

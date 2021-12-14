@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./navagationCom.module.scss";
 import icon from "assets/img/navigation_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu } from "antd";
 import { HomeFilled, CopyFilled, GithubFilled } from "@ant-design/icons";
 export const NavigationCom: React.FC = () => {
+  const navigation = useNavigate();
   const handleClick = ({ key }) => {
-    console.log(key);
+    navigation(key);
   };
   return (
     <div className={styles.navigation}>
@@ -20,13 +21,13 @@ export const NavigationCom: React.FC = () => {
 
       <div className={styles.right}>
         <Menu onClick={handleClick} mode="horizontal">
-          <Menu.Item key="home" icon={<HomeFilled style={{ fontSize: 20 }} />}>
+          <Menu.Item key="/" icon={<HomeFilled style={{ fontSize: 20 }} />}>
             主页
           </Menu.Item>
-          <Menu.Item key="login" icon={<GithubFilled style={{ fontSize: 20 }} />}>
+          <Menu.Item key="/login" icon={<GithubFilled style={{ fontSize: 20 }} />}>
             登录
           </Menu.Item>
-          <Menu.Item key="about" icon={<CopyFilled style={{ fontSize: 20 }} />}>
+          <Menu.Item key="/about" icon={<CopyFilled style={{ fontSize: 20 }} />}>
             介绍
           </Menu.Item>
         </Menu>
