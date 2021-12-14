@@ -1,0 +1,26 @@
+.form {
+    width: 320px;
+
+
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    span:nth-child(1) {
+        font-size: 24px;
+        font-weight: 500;
+        color: #1d2129;
+        line-height: 32px;
+    }
+
+    span:nth-child(2) {
+        font-size: 16px;
+        line-height: 24px;
+        color: #86909c;
+    }
+
+
+}

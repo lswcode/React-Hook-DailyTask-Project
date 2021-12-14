@@ -2,7 +2,13 @@ import React from "react";
 import { NavigationCom } from "components";
 import styles from "./homePage.module.scss";
 import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
+
 export const HomePage: React.FC = () => {
+  const navigation = useNavigate();
+  const startFun = () => {
+    navigation("login");
+  };
   return (
     <div className={styles.home}>
       <NavigationCom />
@@ -16,6 +22,7 @@ export const HomePage: React.FC = () => {
         <div>天行健 君子以自强不息</div>
         <div>
           <Button
+            onClick={startFun}
             type="primary"
             style={{
               backgroundColor: "#165dff",
