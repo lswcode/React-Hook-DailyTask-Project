@@ -1,8 +1,5 @@
+import { UserDataInter } from "utils/interface";
 import request from "./index";
-interface UserDataInter {
-  account: string;
-  password: string;
-}
 
 // -------------------用户相关接口-------------------------------------------------------------
 // 登录接口

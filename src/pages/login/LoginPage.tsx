@@ -13,7 +13,7 @@ export const LoginPage: React.FC = (props) => {
         <img src={logo} alt="logo" />
       </div>
       <div className={styles.right}>
-        <LoginFormCom></LoginFormCom>
+        <LoginFormCom document={document.body}></LoginFormCom>
       </div>
     </div>
   );

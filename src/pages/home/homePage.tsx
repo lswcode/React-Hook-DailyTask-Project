@@ -3,11 +3,17 @@ import { NavigationCom } from "components";
 import styles from "./homePage.module.scss";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import { getItem } from "utils/storage";
 
 export const HomePage: React.FC = () => {
   const navigation = useNavigate();
   const startFun = () => {
-    navigation("/login");
+    if (getItem("token")) {
+      // token存在则表示已经登录，直接跳转到任务页
+      navigation("/task");
+    } else {
+      navigation("/login"); // 没有登录则跳转到login页面
+    }
   };
   const aboutFun = () => {
     navigation("/about");

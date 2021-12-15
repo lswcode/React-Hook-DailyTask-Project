@@ -1,14 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Form, Input, Button, FormInstance } from "antd";
 import styles from "./loginFormCom.module.scss";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { loginApi } from "api/api";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";
-export const LoginFormCom: React.FC<any> = () => {
+import { GlobalContext } from "store/context";
+import { setItem } from "utils/storage";
+import { CHANGE_TOKEN } from "store/reducer";
+export const LoginFormCom: React.FC<any> = ({ document }) => {
   const navigation = useNavigate();
   const domRef = useRef<FormInstance>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { token, dispatch } = useContext(GlobalContext);
   const submitFun = () => {
     domRef.current
       ?.validateFields()
@@ -20,15 +24,20 @@ export const LoginFormCom: React.FC<any> = () => {
       });
   };
   const loginFun = async (value) => {
+    console.log(token);
     setIsLoading(true); // 开启按钮loading
     try {
       const { data } = await loginApi(value);
       console.log(data);
       if (data.code === 1) {
-        // store.commit("changeToken", data.token); // 改变store中的token，同时存储到本地
-        message.success(data.msg);
-        navigation("/");
+        message.success({
+          content: data.msg,
+          getContainer: () => document, // 使用父组件的document.body，让提示渲染到整个页面中间
+        });
         setIsLoading(false); // 关闭按钮loading
+        setItem("token", data.token); // 保存token到本地
+        dispatch({ type: CHANGE_TOKEN, token: data.token }); // 更新token
+        navigation("/task"); //跳转页面
       } else if (data.code === 2) {
         message.warning(data.msg);
         setIsLoading(false); // 关闭按钮loading
