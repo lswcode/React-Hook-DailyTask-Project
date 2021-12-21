@@ -55,7 +55,7 @@ const LoginFormComOrigin: React.FC<any> = ({ document }) => {
       {/* layout设置表单水平或者垂直 */}
       <div className={styles.title}>
         <span>登录 Daily tsak</span>
-        <span>目前支持支管理员登录</span>
+        <span>目前仅支持支管理员登录</span>
       </div>
       {/* validateTrigger="onBlur" 设置失去焦点后再触发验证 */}
       <Form
