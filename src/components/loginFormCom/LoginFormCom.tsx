@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "store/context";
 import { setItem } from "utils/storage";
 import { CHANGE_TOKEN } from "store/reducer";
-export const LoginFormCom: React.FC<any> = ({ document }) => {
+const LoginFormComOrigin: React.FC<any> = ({ document }) => {
   const navigation = useNavigate();
   const domRef = useRef<FormInstance>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -96,3 +96,4 @@ export const LoginFormCom: React.FC<any> = ({ document }) => {
     </div>
   );
 };
+export const LoginFormCom = React.memo(LoginFormComOrigin);

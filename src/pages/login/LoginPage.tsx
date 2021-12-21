@@ -12,6 +12,7 @@ export const LoginPage: React.FC = (props) => {
         <span>每日打卡，每天坚持一点点，每天进步一点点 </span>
         <img src={logo} alt="logo" />
       </div>
+
       <div className={styles.right}>
         <LoginFormCom document={document.body}></LoginFormCom>
       </div>
