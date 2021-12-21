@@ -5,11 +5,7 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <meta name="description" content="Web site created using create-react-app" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -25,6 +21,10 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <!-- cdn 导入 css -->
+    <% for (var i in htmlWebpackPlugin.options.files && htmlWebpackPlugin.options.files.css) { %>
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.files.css[i] %>" />
+    <% } %>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -39,5 +39,9 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- cdn 导入 js -->
+    <% for (var i in htmlWebpackPlugin.options.files && htmlWebpackPlugin.options.files.js) { %>
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.options.files.js[i] %>"></script>
+    <% } %>
   </body>
 </html>
