@@ -2,6 +2,7 @@ import { RouterCom } from "router/router";
 import "./styles/normalize.css";
 import "./styles/global.css";
 import { Store } from "store/Store";
+
 function App() {
   return (
     <div className="App">
